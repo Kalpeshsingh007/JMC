@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महानगरपालिका विषयी - जालना शहर महानगरपालिका</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Marathi Support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-header-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="font-size-controls">
+                        <button class="font-btn" onclick="changeFontSize('increase')" title="मोठे अक्षर">A+</button>
+                        <button class="font-btn" onclick="changeFontSize('normal')" title="सामान्य अक्षर">A</button>
+                        <button class="font-btn" onclick="changeFontSize('decrease')" title="लहान अक्षर">A-</button>
+                        <div class="language-selector">
+                            <select class="form-select form-select-sm" onchange="changeLanguage(this.value)">
+                                <option value="mr">मराठी</option>
+                                <option value="hi">हिंदी</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="contact-info">
+                        <span class="toll-free">टोल फ्री: <strong>02482221375, 18002331368</strong></span>
+                        <button class="btn btn-sm btn-outline-light login-btn">
+                            <i class="fas fa-sign-in-alt"></i> लॉगिन
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center py-3">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <div class="logo-container">
+                            <img src="images/logo.jpeg" alt="जालना महानगरपालिका लोगो" class="main-logo">
+                        </div>
+                        <div class="header-text ms-4">
+                            <h1 class="org-name-marathi">जालना शहर महानगरपालिका, जालना</h1>
+                            <p class="org-subtitle">महाराष्ट्र शासन</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="header-right">
+                        <div class="government-logos">
+                            <img src="https://via.placeholder.com/80x60/4CAF50/FFFFFF?text=Digital+India" alt="डिजिटल इंडिया" class="gov-logo">
+                            <img src="https://via.placeholder.com/80x60/FF9800/FFFFFF?text=Swachh+Bharat" alt="स्वच्छ भारत" class="gov-logo">
+                        </div>
+                        <div class="search-container mt-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="शोधा..." id="searchInput">
+                                <button class="btn btn-primary" type="button" onclick="performSearch()">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">मुख्य पान</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="about.html" class="nav-link">महानगरपालिका विषयी</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="departmentDropdown">
+                                विभाग
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu" id="departmentMenu">
+                                <div class="dropdown-columns">
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">मुख्य विभाग</h6>
+                                        <a class="dropdown-item" href="#">पर्यावरण विभाग</a>
+                                        <a class="dropdown-item" href="#">विद्युत विभाग</a>
+                                        <a class="dropdown-item" href="#">यांत्रिकी विभाग</a>
+                                        <a class="dropdown-item" href="#">अग्निशमन विभाग</a>
+                                        <a class="dropdown-item" href="#">प्रशासन</a>
+                                        <a class="dropdown-item" href="#">शिक्षण विभाग</a>
+                                        <a class="dropdown-item" href="#">उद्यान</a>
+                                        <a class="dropdown-item" href="#">एल. बी.टी. कक्ष</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">अधिकारी</h6>
+                                        <a class="dropdown-item" href="#">मुख्य लेखा अधिकारी</a>
+                                        <a class="dropdown-item" href="#">मुख्य लेखा परीक्षक</a>
+                                        <a class="dropdown-item" href="#">कायदा विधी अधिकारी</a>
+                                        <a class="dropdown-item" href="#">महिला व बाल विकास अधिकारी</a>
+                                        <a class="dropdown-item" href="#">शहर अभियंता (स्थापत्य)</a>
+                                        <a class="dropdown-item" href="#">जल अभियंता</a>
+                                        <a class="dropdown-item" href="#">सहाय्यक संचालक नगर रचना</a>
+                                        <a class="dropdown-item" href="#">सुरक्षा अधिकारी</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">प्रशासकीय अधिकारी</h6>
+                                        <a class="dropdown-item" href="#">प्रशासन अधिकारी शिक्षण विभाग</a>
+                                        <a class="dropdown-item" href="#">सिस्टम मॅनेजर (ई-प्रशासन)</a>
+                                        <a class="dropdown-item" href="#">मूल्य निर्धारक ,कर संकलन अधिकारी</a>
+                                        <a class="dropdown-item" href="#">ग्रंथपाल</a>
+                                        <a class="dropdown-item" href="#">वैद्यकीय अधिकारी (स्वच्छता)</a>
+                                        <a class="dropdown-item" href="#">वैद्यकीय अधिकारी</a>
+                                        <a class="dropdown-item" href="#">नगर सचिव</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h6 class="dropdown-header">सहाय्यक आयुक्त</h6>
+                                        <a class="dropdown-item" href="#">सहाय्यक आयुक्त प्रभाग समिती अ</a>
+                                        <a class="dropdown-item" href="#">सहाय्यक आयुक्त प्रभाग समिती ब</a>
+                                        <a class="dropdown-item" href="#">सहाय्यक आयुक्त प्रभाग समिती क</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">ऑनलाईन सेवा</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">आपत्कालीन</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">संपर्क</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">आरटीआय सेवा</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">रोजगार</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">मुख्य पान</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">महानगरपालिका विषयी</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- About JMC Section -->
+    <section class="about-jmc-section py-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="page-title text-center mb-5">महानगरपालिकेचा परिचय</h1>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="about-content">
+                        <h2 class="section-title">जालना शहर महानगरपालिका विषयी</h2>
+                        <div class="content-text">
+                            <p class="lead">
+                                जालना शहर महानगरपालिका हे महाराष्ट्र राज्यातील एक महत्वाचे स्थानिक स्वराज्य संस्था आहे. 
+                                जालना हे मराठवाड्यातील एक ऐतिहासिक शहर असून येथे समृद्ध सांस्कृतिक वारसा आहे.
+                            </p>
+                            
+                            <h3>आमचे ध्येय</h3>
+                            <p>
+                                नागरिकांना उत्तम दर्जाची मूलभूत सुविधा पुरवणे, शहराचा नियोजित विकास करणे आणि 
+                                पर्यावरणाचे संरक्षण करत आधुनिक आणि स्वच्छ जालना शहर निर्माण करणे हे आमचे मुख्य ध्येय आहे.
+                            </p>
+                            
+                            <h3>आमची सेवा</h3>
+                            <ul class="service-list">
+                                <li><i class="fas fa-check-circle text-success"></i> पाणी पुरवठा आणि गटार व्यवस्था</li>
+                                <li><i class="fas fa-check-circle text-success"></i> कचरा व्यवस्थापन आणि स्वच्छता</li>
+                                <li><i class="fas fa-check-circle text-success"></i> रस्ते आणि पायाभूत सुविधांचा विकास</li>
+                                <li><i class="fas fa-check-circle text-success"></i> जन्म-मृत्यू नोंदणी</li>
+                                <li><i class="fas fa-check-circle text-success"></i> व्यापार परवाना आणि इमारत परवाना</li>
+                                <li><i class="fas fa-check-circle text-success"></i> सार्वजनिक आरोग्य सेवा</li>
+                                <li><i class="fas fa-check-circle text-success"></i> शिक्षण आणि सामाजिक कल्याण</li>
+                            </ul>
+                            
+                            <h3>आमची दृष्टी</h3>
+                            <p>
+                                २०३० पर्यंत जालना शहराला एक आदर्श स्मार्ट सिटी बनवणे, जेथे प्रत्येक नागरिकाला 
+                                गुणवत्तापूर्ण जीवन जगता येईल आणि सर्व आधुनिक सुविधा उपलब्ध असतील.
+                            </p>
+                            
+                            <div class="stats-row mt-4">
+                                <div class="row">
+                                    <div class="col-md-3 col-6">
+                                        <div class="stat-item">
+                                            <h4>५.२ लाख+</h4>
+                                            <p>लोकसंख्या</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="stat-item">
+                                            <h4>४५</h4>
+                                            <p>प्रभाग</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="stat-item">
+                                            <h4>९८%</h4>
+                                            <p>पाणी पुरवठा</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="stat-item">
+                                            <h4>८५%</h4>
+                                            <p>रस्ते नेटवर��क</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-image-section">
+                        <div class="main-image">
+                            <img src="images/jmc-building.jpg" alt="जालना महानगरपालिका इमारत" class="img-fluid rounded shadow-lg">
+                            <div class="image-caption">
+                                <h5>जालना महानगरपालिका मुख्य कार्यालय</h5>
+                                <p>स्टेशन रोड, जालना</p>
+                            </div>
+                        </div>
+                        <div class="additional-images mt-4">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <img src="images/jmc-front.jpg" alt="महानगरपालिका समोरील भाग" class="img-fluid rounded shadow">
+                                </div>
+                                <div class="col-6">
+                                    <img src="https://via.placeholder.com/200x150/4CAF50/FFFFFF?text=JMC+Hall" alt="सभागृह" class="img-fluid rounded shadow">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Know Your City Section -->
+    <section class="know-city-section py-5 bg-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">आपले शहर जाणून घ्या</h2>
+                    <p class="section-subtitle">जालना शहरातील प्रसिद्ध ठिकाणे आणि ऐतिहासिक वारसा</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Motibagh Palace -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="images/motibagh.jpg" alt="मोतीबाग राजवाडा" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">ऐतिहासिक</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>मोतीबाग राजवाडा</h4>
+                            <p class="place-description">
+                                जालन्यातील सर्वात प्रसिद्ध ऐतिहासिक वारसा स्थळ. हा राजवाडा मराठा काळातील 
+                                उत्कृष्ट स्थापत्य कलेचा नमुना आहे. येथे अनेक ऐतिहासिक कलाकृती आणि शिल्पकला पाहायला मिळते.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> मोतीबाग, जालना</span>
+                                <span><i class="fas fa-clock"></i> सकाळी ९ ते संध्याकाळी ६</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jalna Railway Station -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="images/railway.avif" alt="जालना रेल्वे स्टेशन" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">वाहतूक</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>जालना रेल्वे स्टेशन</h4>
+                            <p class="place-description">
+                                जालना शहराचे मुख्य रेल्वे स्टेशन जे मुंबई, पुणे, हैदराबाद, दिल्ली यासारख्या 
+                                मोठ्या शहरांशी जोडलेले आहे. आधुनिक सुविधांनी सुसज्ज असलेले हे स्टेशन.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> स्टेशन रोड, जालना</span>
+                                <span><i class="fas fa-train"></i> २४ तास सेवा</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khandoba Temple -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250/FF9800/FFFFFF?text=खंडोबा+मंदिर" alt="खंडोबा मंदिर" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">धार्मिक</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>श्री खंडोबा मंदिर</h4>
+                            <p class="place-description">
+                                जालन्यातील प्राचीन आणि प्रसिद्ध खंडोबा मंदिर. भाद्रपद महिन्यात येथे मोठा उत्सव साजरा केला जातो. 
+                                हजारो भाविक येथे दर्शनासाठी येतात.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> खंडोबा चौक, जालना</span>
+                                <span><i class="fas fa-clock"></i> सकाळी ५ ते रात्री १०</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jalna Market -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250/4CAF50/FFFFFF?text=जालना+बाजार" alt="जालना मुख्य बाजार" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">व्यापारी</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>जालना मुख्य बाजार</h4>
+                            <p class="place-description">
+                                जालन्याचा मुख्य व्यापारी केंद्र. येथे कापड, धान्य, भाज्या, फळे आणि दैनंदिन 
+                                गरजेच्या सर्व वस्तू मिळतात. शुक्रवारी येथे मोठा बाजार भरतो.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> मुख्य बाजार, जालना</span>
+                                <span><i class="fas fa-clock"></i> सकाळी ८ ते रात्री ९</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jalna Garden -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250/2196F3/FFFFFF?text=शहर+उद्यान" alt="जालना शहर उद्यान" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">मनोरंजन</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>जालना शहर उद्यान</h4>
+                            <p class="place-description">
+                                कुटुंबासह फिरण्यासाठी आणि मुलांच्या खेळण्यासाठी उत्तम ठिकाण. 
+                                येथे हरीतगार वातावरण, फुलांची बाग आणि व्यायामाची सुविधा आहे.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> शहर उद्यान, जालना</span>
+                                <span><i class="fas fa-clock"></i> सकाळी ६ ते रात्री ८</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jalna College -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="place-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250/9C27B0/FFFFFF?text=शिक्षण+संस्था" alt="जालना महाविद्यालय" class="img-fluid">
+                            <div class="card-overlay">
+                                <span class="place-category">शिक्षण</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4>जालना महाविद्यालय</h4>
+                            <p class="place-description">
+                                जालन्यातील प्रमुख शिक्षण संस्था. येथे कला, विज्ञान आणि वाणिज्य शाखेतील 
+                                उच्च शिक्षण दिले जाते. हजारो विद्यार्थी येथे शिक्षण घेतात.
+                            </p>
+                            <div class="place-info">
+                                <span><i class="fas fa-map-marker-alt"></i> कॉलेज रोड, जालना</span>
+                                <span><i class="fas fa-graduation-cap"></i> शिक्षण संस्था</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm mt-3">अधिक माहिती</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h5>संपर्क माहिती</h5>
+                        <div class="contact-details">
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i>
+                                जालना शहर महानगरपालिका<br>
+                                स्टेशन रोड, जालना - ४३१२०३
+                            </p>
+                            <p>
+                                <i class="fas fa-phone"></i>
+                                +९१-२४८२-२२२३३३
+                            </p>
+                            <p>
+                                <i class="fas fa-envelope"></i>
+                                info@jalnamc.gov.in
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h5>महत्वाचे दुवे</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">आरटीआय माहिती</a></li>
+                            <li><a href="#">निविदा</a></li>
+                            <li><a href="#">भरती</a></li>
+                            <li><a href="#">जनतेच्या तक्रारी</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h5>सेवा</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">मालमत्ता कर</a></li>
+                            <li><a href="#">पाणी बिल भरणे</a></li>
+                            <li><a href="#">जन्म दाखला</a></li>
+                            <li><a href="#">व्यापार परवाना</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h5>सामाजिक माध्यमे</h5>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="copyright">
+                        © २०२४ जालना शहर महानगरपालिका. सर्व हक्क राखीव आहेत.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

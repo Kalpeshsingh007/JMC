@@ -87,7 +87,7 @@ body {
 
 /* Enhanced Main Header with Simple Attractive Design */
 .main-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #e0daca 0%, #e0daca 100%);
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -161,7 +161,7 @@ body {
 .org-name-marathi {
   font-size: 32px;
   font-weight: 800;
-  color: white;
+  color: #fc1c03;
   margin-bottom: 8px;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -234,10 +234,11 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Navigation Menu */
+/* Enhanced Navigation Menu with Dropdown */
 .main-navigation {
   background: var(--primary-blue);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .nav-menu {
@@ -267,6 +268,92 @@ body {
 .nav-item.active .nav-link {
   background-color: rgba(255, 255, 255, 0.1);
   border-bottom-color: var(--secondary-orange);
+}
+
+/* Dropdown Styles - Fixed */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-toggle i {
+  transition: transform 0.3s ease;
+  margin-left: 5px;
+}
+
+.nav-item.dropdown:hover .dropdown-toggle i,
+.nav-item.dropdown.show .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  min-width: 800px;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.show .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--secondary-orange);
+}
+
+.dropdown-item {
+  color: var(--dark-gray);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(45deg, var(--primary-blue), #3498db);
+  color: white;
+  transform: translateX(5px);
+  text-decoration: none;
 }
 
 /* Main Banner */
@@ -794,6 +881,17 @@ body {
     font-size: 14px;
   }
 
+  .dropdown-menu {
+    min-width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .dropdown-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .banner-placeholder {
     height: 250px;
   }
@@ -898,6 +996,10 @@ body {
     width: 45px;
     height: 45px;
     font-size: 18px;
+  }
+
+  .dropdown-columns {
+    grid-template-columns: 1fr;
   }
 }
 
